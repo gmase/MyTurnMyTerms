@@ -14,4 +14,13 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"/>
 
+    <ListView
+        android:id="@+id/list1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/section_label"
+        android:layout_marginStart="18dp" />
+
+
 </RelativeLayout>
