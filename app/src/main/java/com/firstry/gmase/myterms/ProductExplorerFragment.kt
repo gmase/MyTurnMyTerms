@@ -1,5 +1,8 @@
 package com.firstry.gmase.myterms
 
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +13,7 @@ import android.provider.ContactsContract
 import android.support.v4.widget.SimpleCursorAdapter
 import android.support.v7.widget.RecyclerView
 import android.view.Gravity
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
@@ -26,9 +30,17 @@ import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
-            val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
-            val textView = rootView.findViewById(R.id.section_label) as TextView
-            textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+        val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
+        val textView = rootView.findViewById(R.id.section_label) as TextView
+
+        val phoneButton= rootView.findViewById(R.id.phone_filter) as ImageButton
+        val internetButton= rootView.findViewById(R.id.internet_filter) as ImageButton
+        val tvButton= rootView.findViewById(R.id.tv_filter) as ImageButton
+        val devicesButton= rootView.findViewById(R.id.devices_filter) as ImageButton
+
+        textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+        if (arguments.getInt(ARG_SECTION_NUMBER)==1)
+            textView.text= getString(R.string.filters)
         val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView
 
         // Create a progress bar to display while the list loads
@@ -59,7 +71,44 @@ import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
         recycler.itemAnimator = FadeInRightAnimator()
 
 
-            return rootView
+
+        var phoneFilter=true
+        var internetFilter=false
+        var tvFilter=false
+        var giftsFilter=false
+        phoneButton.setOnClickListener {
+            if (phoneFilter)
+                phoneButton.background.clearColorFilter()
+            else
+                phoneButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+            phoneFilter=!phoneFilter
+        }
+
+        internetButton.setOnClickListener {
+            if (internetFilter)
+                internetButton.background.clearColorFilter()
+            else
+            internetButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+            internetFilter=!internetFilter
+        }
+
+        tvButton.setOnClickListener {
+            if (tvFilter)
+                tvButton.background.clearColorFilter()
+            else
+                tvButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+            tvFilter=!tvFilter
+        }
+
+        devicesButton.setOnClickListener {
+            if (giftsFilter)
+                devicesButton.background.clearColorFilter()
+            else
+            devicesButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+            giftsFilter=!giftsFilter
+        }
+
+        return rootView
         }
 
         companion object {
