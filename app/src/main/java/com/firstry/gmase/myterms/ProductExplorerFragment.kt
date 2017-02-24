@@ -17,6 +17,8 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ProgressBar
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
+import android.R.attr.duration
+import android.widget.Toast
 
 
 /**
@@ -71,40 +73,51 @@ import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
         recycler.itemAnimator = FadeInRightAnimator()
 
 
-
-        var phoneFilter=true
+        var phoneFilter = false
         var internetFilter=false
         var tvFilter=false
         var giftsFilter=false
         phoneButton.setOnClickListener {
             if (phoneFilter)
                 phoneButton.background.clearColorFilter()
-            else
+            else {
                 phoneButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+                val toast = Toast.makeText(context, getString(R.string.phone_selected), Toast.LENGTH_SHORT)
+                toast.show()
+            }
             phoneFilter=!phoneFilter
         }
 
         internetButton.setOnClickListener {
             if (internetFilter)
                 internetButton.background.clearColorFilter()
-            else
-            internetButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+            else {
+                internetButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+                val toast = Toast.makeText(context, getString(R.string.internet_selected), Toast.LENGTH_SHORT)
+                toast.show()
+            }
             internetFilter=!internetFilter
         }
 
         tvButton.setOnClickListener {
             if (tvFilter)
                 tvButton.background.clearColorFilter()
-            else
+            else {
                 tvButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+                val toast = Toast.makeText(context, getString(R.string.tv_selected), Toast.LENGTH_SHORT)
+                toast.show()
+            }
             tvFilter=!tvFilter
         }
 
         devicesButton.setOnClickListener {
             if (giftsFilter)
                 devicesButton.background.clearColorFilter()
-            else
-            devicesButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+            else {
+                devicesButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+                val toast = Toast.makeText(context, getString(R.string.gifts_selected), Toast.LENGTH_SHORT)
+                toast.show()
+            }
             giftsFilter=!giftsFilter
         }
 

@@ -4,4 +4,8 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="filters">Lo que busco</string>
     <string name="products_header">Lo que ofrecen</string>
+    <string name="phone_selected">Línea móvil</string>
+    <string name="internet_selected">Internet en casa</string>
+    <string name="tv_selected">Televisión</string>
+    <string name="gifts_selected">Regalos de dispositivos</string>
 </resources>
