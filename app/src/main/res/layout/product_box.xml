@@ -2,21 +2,38 @@
     android:id="@+id/llContainer"
     android:layout_width="match_parent"
     android:layout_height="170sp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/colorThird"
     android:elevation="2sp"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/question_layout"
+    <LinearLayout
+        android:id="@+id/product_header"
         android:layout_width="match_parent"
-        android:layout_height="80sp">
-
+        android:layout_height="40sp"
+        android:background="@color/colorThirdLight"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp">
         <TextView
-            android:id="@+id/question"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical" />
-    </FrameLayout>
+            android:id="@+id/product_price"
+            style="@style/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="30€" />
 
+        <ImageView
+            style="@style/companyLogo"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/simyo" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_sentiment_very_dissatisfied_black_48px" />
+
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -30,22 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end">
 
-            <SeekBar
-                android:id="@+id/seekBar"
-                android:layout_width="180sp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|bottom"
-                android:elevation="2sp"
-                android:gravity="end" />
-
-            <TextView
-                android:id="@+id/answer"
-                android:layout_width="wrap_content"
-                android:layout_height="50sp"
-                android:layout_gravity="center|top"
-                android:gravity="center|top"
-                android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textStyle="bold" />
         </FrameLayout>
 
         <LinearLayout

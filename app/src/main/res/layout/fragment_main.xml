@@ -10,49 +10,53 @@
     <!--tools:context="com.firstry.gmase.myterms.MainActivity$ProductExplorerFragment"-->
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
         <TextView
             android:id="@+id/section_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"/>
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/phone_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="2dp"
             app:srcCompat="@drawable/ic_stay_primary_portrait_black_24dp" />
         <ImageButton
             android:id="@+id/internet_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="2dp"
             app:srcCompat="@drawable/ic_signal_wifi_2_bar_black_24dp" />
         <ImageButton
             android:id="@+id/tv_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="2dp"
             app:srcCompat="@drawable/ic_tv_black_24dp" />
         <ImageButton
             android:id="@+id/devices_filter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:elevation="2dp"
             app:srcCompat="@drawable/ic_phonelink_black_24dp" />
 
     </LinearLayout>
 
         <TextView
             android:id="@+id/TVoffers"
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="@string/products_header"
             android:textColor="@color/colorAccent"/>
 

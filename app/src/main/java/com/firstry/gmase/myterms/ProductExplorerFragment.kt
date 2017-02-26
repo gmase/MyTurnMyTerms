@@ -18,6 +18,7 @@ import android.widget.LinearLayout
 import android.widget.ProgressBar
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
 import android.R.attr.duration
+import android.support.design.widget.Snackbar
 import android.widget.Toast
 
 
@@ -77,46 +78,44 @@ import android.widget.Toast
         var internetFilter=false
         var tvFilter=false
         var giftsFilter=false
-        phoneButton.setOnClickListener {
+        phoneButton.setOnClickListener { view ->
             if (phoneFilter)
                 phoneButton.background.clearColorFilter()
             else {
                 phoneButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
-                val toast = Toast.makeText(context, getString(R.string.phone_selected), Toast.LENGTH_SHORT)
-                toast.show()
+                Snackbar.make(view, getString(R.string.i_want) + getString(R.string.phone_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             phoneFilter=!phoneFilter
         }
 
-        internetButton.setOnClickListener {
+        internetButton.setOnClickListener { view ->
             if (internetFilter)
                 internetButton.background.clearColorFilter()
             else {
                 internetButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
-                val toast = Toast.makeText(context, getString(R.string.internet_selected), Toast.LENGTH_SHORT)
-                toast.show()
+                //val toast = Toast.makeText(context, getString(R.string.internet_selected), Toast.LENGTH_SHORT)
+                //toast.show()
+                Snackbar.make(view, getString(R.string.i_want) + getString(R.string.internet_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             internetFilter=!internetFilter
         }
 
-        tvButton.setOnClickListener {
+        tvButton.setOnClickListener { view ->
             if (tvFilter)
                 tvButton.background.clearColorFilter()
             else {
                 tvButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
-                val toast = Toast.makeText(context, getString(R.string.tv_selected), Toast.LENGTH_SHORT)
-                toast.show()
+                Snackbar.make(view, getString(R.string.i_want) + getString(R.string.tv_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             tvFilter=!tvFilter
         }
 
-        devicesButton.setOnClickListener {
+        devicesButton.setOnClickListener { view ->
             if (giftsFilter)
                 devicesButton.background.clearColorFilter()
             else {
                 devicesButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
-                val toast = Toast.makeText(context, getString(R.string.gifts_selected), Toast.LENGTH_SHORT)
-                toast.show()
+                Snackbar.make(view, getString(R.string.i_want) + getString(R.string.gifts_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             giftsFilter=!giftsFilter
         }

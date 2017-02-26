@@ -21,7 +21,7 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
         val inflater = LayoutInflater.from(parent.context)
         res = parent.resources
 
-        val v2 = inflater.inflate(R.layout.question_slider, parent, false)
+        val v2 = inflater.inflate(R.layout.product_box, parent, false)
         viewHolder = ViewHolderSlider(parent.context,v2,this,fm)
         return viewHolder
     }// set the view's size, margins, paddings and layout parameters
@@ -44,7 +44,7 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
     }
 
     override fun getItemCount(): Int {
-        return 3
+        return 6
     }
 
     override fun getItemViewType(position: Int): Int {

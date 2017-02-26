@@ -8,4 +8,5 @@
     <string name="internet_selected">Internet en casa</string>
     <string name="tv_selected">Televisión</string>
     <string name="gifts_selected">Regalos de dispositivos</string>
+    <string name="i_want">"Quiero "</string>
 </resources>

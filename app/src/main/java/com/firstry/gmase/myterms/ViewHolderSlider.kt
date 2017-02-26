@@ -13,24 +13,24 @@ import java.util.*
 
 class ViewHolderSlider(var mView: View, var rv: ProductsAdapter) : RecyclerView.ViewHolder(mView), View.OnClickListener {
     var labelQuestion: TextView
-    var slider: SeekBar
+    //var slider: SeekBar
     var done: ImageButton
     var context: Context? = null
    // var questions: MutableList<Question>
-    var textSlider: TextView
+   // var textSlider: TextView
     var sliderValue: Int
     val optionsButtom: Button
-    val questionLayout: FrameLayout
+    //val questionLayout: FrameLayout
     //val lastAnswer: TextView
     var default: String? = null
 
     init {
         //questions = ArrayList<Question>()
-        questionLayout = mView.findViewById(R.id.question_layout) as FrameLayout
-        labelQuestion = mView.findViewById(R.id.question) as TextView
-        slider = mView.findViewById(R.id.seekBar) as SeekBar
+        //questionLayout = mView.findViewById(R.id.question_layout) as FrameLayout
+        labelQuestion = mView.findViewById(R.id.product_price) as TextView
+        //slider = mView.findViewById(R.id.seekBar) as SeekBar
         done = mView.findViewById(R.id.done) as ImageButton
-        textSlider = mView.findViewById(R.id.answer) as TextView
+        //textSlider = mView.findViewById(R.id.answer) as TextView
         optionsButtom = mView.findViewById(R.id.optionsButtom) as Button
         sliderValue = 0
         //lastAnswer = mView.findViewById(R.id.lastAnswerSlider) as TextView
@@ -42,7 +42,7 @@ class ViewHolderSlider(var mView: View, var rv: ProductsAdapter) : RecyclerView.
         //questions = dataShow
         done.setOnClickListener(this)
 
-        slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        /*slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onStopTrackingTouch(p0: SeekBar?) {
             }
 
@@ -53,7 +53,7 @@ class ViewHolderSlider(var mView: View, var rv: ProductsAdapter) : RecyclerView.
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
             }
-        })
+        })*/
 
 //        optionsButtom.setOnClickListener {
 //            //todo

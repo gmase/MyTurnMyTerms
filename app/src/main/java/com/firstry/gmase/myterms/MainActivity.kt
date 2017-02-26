@@ -55,11 +55,11 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         val tabLayout = findViewById(R.id.tabs) as TabLayout
         tabLayout.setupWithViewPager(mViewPager)
 
-        val fab = findViewById(R.id.fab) as FloatingActionButton
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+//        val fab = findViewById(R.id.fab) as FloatingActionButton
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show()
+//        }
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
 
@@ -127,9 +127,9 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         override fun getPageTitle(position: Int): CharSequence? {
             when (position) {
-                0 -> return "SECTION 1"
-                1 -> return "SECTION 2"
-                2 -> return "SECTION 3"
+                0 -> return "MERCADO"
+                1 -> return "MI CESTA"
+                2 -> return "SOCIAL"
             }
             return null
         }
