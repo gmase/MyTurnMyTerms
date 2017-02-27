@@ -12,16 +12,32 @@
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textStyle">bold</item>
         <item name="android:paddingStart">10dp</item>
+        <item name="android:gravity">center</item>
     </style>
 
+    <style name="productName">
+        <item name="android:textAppearance">?android:attr/textAppearance</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="productText">
         <item name="android:textAppearance">?android:attr/textAppearance</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>
         <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <style name="companyLogo">
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="satisfactionIcon">
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 </resources>

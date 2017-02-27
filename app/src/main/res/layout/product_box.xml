@@ -13,24 +13,38 @@
         android:layout_height="40sp"
         android:background="@color/colorThirdLight"
         android:orientation="horizontal"
-        android:paddingLeft="5dp">
+        android:paddingLeft="5dp"
+        android:weightSum="1">
         <TextView
             android:id="@+id/product_price"
             style="@style/productPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
             android:text="30€" />
 
+        <TextView
+            android:id="@+id/product_name"
+            style="@style/productName"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            android:text="Ardilla" />
+
         <ImageView
+            android:id="@+id/company_icon"
             style="@style/companyLogo"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="0.25"
             android:src="@drawable/simyo" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:id="@+id/satisfaction_icon"
+            style="@style/satisfactionIcon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.15"
             android:src="@drawable/ic_sentiment_very_dissatisfied_black_48px" />
 
     </LinearLayout>
