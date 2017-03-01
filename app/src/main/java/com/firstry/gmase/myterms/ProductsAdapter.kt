@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import com.firstry.gmase.myterms.model.ProductItem
 import java.util.*
 
 /**
@@ -27,7 +28,11 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
 
 
 //TODO placeholder
-        val list = listOf("A+", "B", "C", "D", "A", "A")
+        val item1 = ProductItem(1, "Internet en casa", 20)
+        val item2 = ProductItem(4, "Internet movil 4G de la hostia lo mejor del mercado ahora y siempre para ti y tus amigos", 60)
+        val item3 = ProductItem(2, "todo", 100)
+        val item4 = ProductItem(3, "Descuento de hasta 300€", 62)
+        val list = listOf(item1, item2, item3, item4)
         val v2 = inflater.inflate(R.layout.product_box, parent, false)
         viewHolder = ViewHolderProduct(parent.context, v2, this, fm)
         val tagList = viewHolder.itemView.findViewById(R.id.product_item_list) as ListView

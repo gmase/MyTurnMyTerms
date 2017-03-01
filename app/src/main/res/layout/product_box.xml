@@ -56,14 +56,14 @@
         android:layout_gravity="start"
         android:orientation="vertical"
         android:paddingBottom="2sp"
-        android:scrollbars="none"></ListView>
+        android:scrollbars="none" />
 
-    <Button
-        android:id="@+id/plusButton"
-        style="@style/plusInfo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="end"
-        android:backgroundTint="@color/colorThirdLight"
-        android:text="+" />
+    <!--<Button-->
+    <!--android:id="@+id/plusButton"-->
+    <!--style="@style/plusInfo"-->
+    <!--android:layout_width="50dp"-->
+    <!--android:layout_height="50dp"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:backgroundTint="@color/colorThirdLight"-->
+    <!--android:text="+" />-->
 </LinearLayout>

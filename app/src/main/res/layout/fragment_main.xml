@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="2dp"
-            app:srcCompat="@drawable/ic_signal_wifi_2_bar_black_24dp" />
+            app:srcCompat="@drawable/ic_home_black_24dp" />
         <ImageButton
             android:id="@+id/tv_filter"
             android:layout_width="wrap_content"
@@ -43,17 +43,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="2dp"
-            app:srcCompat="@drawable/ic_phonelink_black_24dp" />
+            app:srcCompat="@drawable/ic_devices_other_black_24dp" />
 
     </LinearLayout>
-
-        <TextView
-            android:id="@+id/TVoffers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/products_header"
-            android:textColor="@color/colorAccent"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_products"

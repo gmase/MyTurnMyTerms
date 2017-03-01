@@ -5,8 +5,10 @@ import android.database.DataSetObserver
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.TextView
+import com.firstry.gmase.myterms.model.ProductItem
 
 /**
  * Created by Guille2 on 01/03/2017
@@ -14,10 +16,10 @@ import android.widget.TextView
  */
 class ProductItemsAdapter : ListAdapter {
     private var _context: Context? = null
-    private var _elementos: List<String>? = null
+    private var _elementos: List<ProductItem>? = null
 
 
-    constructor(context: Context, elementos: List<String>) {
+    constructor(context: Context, elementos: List<ProductItem>) {
         this._context = context
         this._elementos = elementos
     }
@@ -30,8 +32,21 @@ class ProductItemsAdapter : ListAdapter {
             convertView = infalInflater.inflate(R.layout.product_item, null)
         }
 
-        val txtListChild = convertView!!.findViewById(R.id.rating) as TextView
-        txtListChild.text = _elementos!![p0]
+        val txtListChild = convertView!!.findViewById(R.id.description) as TextView
+        txtListChild.text = _elementos!![p0].text
+
+        val rating = convertView.findViewById(R.id.rating) as TextView
+        rating.text = _elementos!![p0].ratingLetter
+
+
+        if (_elementos!![p0].src != null) {
+            val icon = convertView.findViewById(R.id.item_icon) as ImageView
+            val iconId = this._context!!.resources.getIdentifier(_elementos!![p0].src, "drawable", this._context!!.packageName)
+            icon.setImageResource(iconId)
+        }
+
+        //android:src="@drawable/datos_movil"
+
         return convertView
     }
 
