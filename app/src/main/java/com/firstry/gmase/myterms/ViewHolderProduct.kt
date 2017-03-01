@@ -11,15 +11,15 @@ import java.util.*
  * Created by Guille2 on 19/08/2016.
  */
 
-class ViewHolderSlider(var mView: View, var rv: ProductsAdapter) : RecyclerView.ViewHolder(mView), View.OnClickListener {
+class ViewHolderProduct(var mView: View, var rv: ProductsAdapter) : RecyclerView.ViewHolder(mView), View.OnClickListener {
     var labelQuestion: TextView
     //var slider: SeekBar
-    var done: ImageButton
+    //var done: ImageButton
     var context: Context? = null
    // var questions: MutableList<Question>
    // var textSlider: TextView
     var sliderValue: Int
-    val optionsButtom: Button
+    //val optionsButtom: Button
     //val questionLayout: FrameLayout
     //val lastAnswer: TextView
     var default: String? = null
@@ -29,9 +29,9 @@ class ViewHolderSlider(var mView: View, var rv: ProductsAdapter) : RecyclerView.
         //questionLayout = mView.findViewById(R.id.question_layout) as FrameLayout
         labelQuestion = mView.findViewById(R.id.product_price) as TextView
         //slider = mView.findViewById(R.id.seekBar) as SeekBar
-        done = mView.findViewById(R.id.done) as ImageButton
+        //done = mView.findViewById(R.id.done) as ImageButton
         //textSlider = mView.findViewById(R.id.answer) as TextView
-        optionsButtom = mView.findViewById(R.id.optionsButtom) as Button
+        //optionsButtom = mView.findViewById(R.id.optionsButtom) as Button
         sliderValue = 0
         //lastAnswer = mView.findViewById(R.id.lastAnswerSlider) as TextView
     }
@@ -40,7 +40,7 @@ class ViewHolderSlider(var mView: View, var rv: ProductsAdapter) : RecyclerView.
         //default = defaultAnswer
         this.context = context
         //questions = dataShow
-        done.setOnClickListener(this)
+        //done.setOnClickListener(this)
 
         /*slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onStopTrackingTouch(p0: SeekBar?) {

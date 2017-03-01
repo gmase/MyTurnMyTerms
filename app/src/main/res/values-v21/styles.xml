@@ -15,6 +15,12 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="plusInfo">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="productName">
         <item name="android:textAppearance">?android:attr/textAppearance</item>
         <item name="android:textColor">@color/colorPrimaryDark</item>

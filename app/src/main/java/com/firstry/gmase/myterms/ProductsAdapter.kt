@@ -7,6 +7,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
+import android.widget.TextView
+import android.widget.Toast
+import java.util.*
 
 /**
  * Created by Guille2 on 05/08/2016.
@@ -21,8 +25,22 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
         val inflater = LayoutInflater.from(parent.context)
         res = parent.resources
 
+
+//TODO placeholder
+        val list = listOf("A+", "B", "C", "D", "A", "A")
         val v2 = inflater.inflate(R.layout.product_box, parent, false)
-        viewHolder = ViewHolderSlider(parent.context,v2,this,fm)
+        viewHolder = ViewHolderProduct(parent.context, v2, this, fm)
+        val tagList = viewHolder.itemView.findViewById(R.id.product_item_list) as ListView
+        val listAdapter = ProductItemsAdapter(parent.context, list)
+        // setting list adapter
+        tagList.adapter = listAdapter
+
+        val ut = Utils()
+        ut.setListViewHeightBasedOnChildren(tagList)
+
+
+
+
         return viewHolder
     }// set the view's size, margins, paddings and layout parameters
 
@@ -34,7 +52,7 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
 //                configureViewHolderYesNo(vh1, position)
 //            }
 //            Type.SLIDER.ordinal -> {
-//                val vh2 = holder as ViewHolderSlider
+//                val vh2 = holder as ViewHolderProduct
 //                configureViewHolderSlider(vh2, position)
 //            }
 //            else -> {

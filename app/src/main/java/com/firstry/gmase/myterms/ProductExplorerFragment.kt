@@ -26,7 +26,14 @@ import android.widget.Toast
  * Created by Guille2 on 19/02/2017
  * Have fun
  */
-    class ProductExplorerFragment : Fragment(){
+class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedListener {
+    override fun OnTagSelectedListener(position: Int, InputTag: String) {
+        /*val mRV = findViewById(R.id.my_recycler_view) as RecyclerView
+        if (inputTag == resources.getString(R.string.other)) {
+            (mRV.adapter as CardsAdapter).deleteByTag(position, Tag(tagId = "zzz"))
+        } else (mRV.adapter as CardsAdapter).deleteByTag(position, TagDictionary.getByPhrase(inputTag)!!)*/
+    }
+
     // This is the Adapter being used to display the list's data
     var mAdapter: SimpleCursorAdapter? = null
 
@@ -34,16 +41,16 @@ import android.widget.Toast
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                                   savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
-        val textView = rootView.findViewById(R.id.section_label) as TextView
+        //val textView = rootView.findViewById(R.id.section_label) as TextView
 
         val phoneButton= rootView.findViewById(R.id.phone_filter) as ImageButton
         val internetButton= rootView.findViewById(R.id.internet_filter) as ImageButton
         val tvButton= rootView.findViewById(R.id.tv_filter) as ImageButton
         val devicesButton= rootView.findViewById(R.id.devices_filter) as ImageButton
 
-        textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
+        /*textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
         if (arguments.getInt(ARG_SECTION_NUMBER)==1)
-            textView.text= getString(R.string.filters)
+            textView.text= getString(R.string.filters)*/
         val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView
 
         // Create a progress bar to display while the list loads
@@ -71,7 +78,7 @@ import android.widget.Toast
         val mAdapter = ProductsAdapter( fragmentManager)
         recycler.adapter = mAdapter
 
-        recycler.itemAnimator = FadeInRightAnimator()
+        recycler.itemAnimator = FadeInRightAnimator() as RecyclerView.ItemAnimator?
 
 
         var phoneFilter = false
