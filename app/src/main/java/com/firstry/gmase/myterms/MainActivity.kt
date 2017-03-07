@@ -17,10 +17,9 @@ import android.support.v4.widget.DrawerLayout
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import com.firstry.gmase.myterms.network.HttpRequestTask
+import java.io.IOException
 
-import android.widget.TextView
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
     /**
@@ -63,6 +62,11 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
 
+
+        //Retrive data from server
+
+        var retrievedData = HttpRequestTask(context = this).execute().get()
+        var a = 1
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
