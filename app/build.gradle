@@ -18,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -43,6 +46,10 @@ dependencies {
     compile 'ch.acra:acra:4.9.1'
     compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.3.2'
+    kapt "com.android.databinding:compiler:$android_plugin_version"
+}
+kapt {
+    generateStubs = true
 }
 repositories {
     mavenCentral()

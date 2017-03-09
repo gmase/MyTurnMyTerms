@@ -44,4 +44,12 @@
         <item name="android:layout_marginLeft">20dp</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
+    <style name="textButton">
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_width">47dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
 </resources>

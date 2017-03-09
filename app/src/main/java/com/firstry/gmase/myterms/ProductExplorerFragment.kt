@@ -12,13 +12,10 @@ import android.provider.ContactsContract
 import android.support.v4.widget.SimpleCursorAdapter
 import android.support.v7.widget.RecyclerView
 import android.view.Gravity
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.ProgressBar
 import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
 import android.R.attr.duration
 import android.support.design.widget.Snackbar
-import android.widget.Toast
+import android.widget.*
 
 
 /**
@@ -46,19 +43,17 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         val tvButton= rootView.findViewById(R.id.tv_filter) as ImageButton
         val devicesButton= rootView.findViewById(R.id.devices_filter) as ImageButton
 
-        /*textView.text = getString(R.string.section_format, arguments.getInt(ARG_SECTION_NUMBER))
-        if (arguments.getInt(ARG_SECTION_NUMBER)==1)
-            textView.text= getString(R.string.filters)*/
+        //Secondary buttons
+        val mobile4GButton = rootView.findViewById(R.id.mobile_4g) as Button
+        val mobileDataButton = rootView.findViewById(R.id.mobile_data) as ImageButton
+
+
         val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView
 
         // Create a progress bar to display while the list loads
         val progressBar = ProgressBar(context)
         progressBar.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER.toFloat())
         progressBar.isIndeterminate = true
-
-        // Must add the progress bar to the root of the layout
-        //val root = findViewById(android.R.id.content) as ViewGroup
-        //root.addView(progressBar)
 
         // For the cursor adapter, specify which columns go into which views
         val fromColumns = arrayOf(ContactsContract.Data.DISPLAY_NAME)
@@ -83,12 +78,25 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         var internetFilter=false
         var tvFilter=false
         var giftsFilter=false
+
+        var mobileDataFilter = false
+        var mobile4GFilter = false
         phoneButton.setOnClickListener { view ->
-            if (phoneFilter)
+            if (phoneFilter) {
                 phoneButton.background.clearColorFilter()
+
+                mobile4GButton.visibility = Button.GONE
+                mobileDataButton.visibility = ImageButton.GONE
+                /*mobile4GFilter=false
+                mobileDataFilter=false*/
+            }
             else {
                 phoneButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.phone_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+
+                mobile4GButton.visibility = Button.VISIBLE
+                mobileDataButton.visibility = ImageButton.VISIBLE
+
             }
             phoneFilter=!phoneFilter
         }
@@ -125,10 +133,32 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
             giftsFilter=!giftsFilter
         }
 
+        //secondary buttons
+        mobileDataButton.setOnClickListener { view ->
+            if (mobileDataFilter)
+                mobileDataButton.background.clearColorFilter()
+            else {
+                mobileDataButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+                Snackbar.make(view, getString(R.string.i_want) + getString(R.string.mobile_tons_data), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+            }
+            mobileDataFilter = !mobileDataFilter
+        }
+
+        mobile4GButton.setOnClickListener { view ->
+            if (mobile4GFilter)
+                mobile4GButton.background.clearColorFilter()
+            else {
+                mobile4GButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
+                Snackbar.make(view, getString(R.string.i_want) + getString(R.string.mobile_4g), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+            }
+            mobile4GFilter = !mobile4GFilter
+        }
+
         return rootView
         }
 
-        companion object {
+
+    companion object {
             /**
              * The fragment argument representing the section number for this
              * fragment.

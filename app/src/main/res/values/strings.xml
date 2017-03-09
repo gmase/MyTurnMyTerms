@@ -11,4 +11,7 @@
     <string name="i_want">"Quiero "</string>
     <string name="crash_toast_text">We\'ve received your error report, we\'ll fix it asap!</string>
     <string name="price_tag">%1$d €</string>
+    <string name="mobile_tons_data">Muchos datos móviles</string>
+    <string name="mobile_4g">Red móvil 4G o mejor</string>
+
 </resources>

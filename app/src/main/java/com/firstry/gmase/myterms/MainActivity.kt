@@ -66,11 +66,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         navigationView.setNavigationItemSelectedListener(this)
 
 
-        //Retrive data from server
-        Companies.c = HttpRequestCompanies(context = this).execute().get().body.companies
-        Products.p = HttpRequestProducts(context = this).execute().get().body.products
-
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

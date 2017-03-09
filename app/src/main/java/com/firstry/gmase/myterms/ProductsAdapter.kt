@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
+import com.firstry.gmase.myterms.databinding.ProductBoxBinding
 import com.firstry.gmase.myterms.model.Companies
 import com.firstry.gmase.myterms.model.ProductItem
 import com.firstry.gmase.myterms.model.Products
@@ -34,12 +35,15 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
 
 //TODO placeholder
         val item1 = ProductItem(1, "Internet en casa", 20)
-        val item2 = ProductItem(4, "Internet movil 4G de la hostia lo mejor del mercado ahora y siempre para ti y tus amigos", 60)
+        val item2 = ProductItem(4, "Internet movil 4G de la hostia lo mejor del mercado ahora y siempre para ti y tus amigos", -1)
         val item3 = ProductItem(2, "todo", 100)
         val item4 = ProductItem(3, "Descuento de hasta 300€", -1)
         val list = listOf(item1, item2, item3, item4)
         val v2 = inflater.inflate(R.layout.product_box, parent, false)
-        viewHolder = ViewHolderProduct(parent.context, v2, Products.p, fm)
+        //viewHolder = ViewHolderProduct(parent.context, v2, Products.p, fm)
+
+        val binding = ProductBoxBinding.inflate(inflater, parent, false)
+        viewHolder = ViewHolderProduct(binding, v2)
 
         val tagList = viewHolder.itemView.findViewById(R.id.product_item_list) as ListView
         val listAdapter = ProductItemsAdapter(parent.context, list)
@@ -72,8 +76,8 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
     }
 
     private fun configureViewHolderProduct(vh1: ViewHolderProduct, position: Int) {
-        val prod = Products.p[position]
-        vh1.priceTV.text = String.format(res!!.getString(R.string.price_tag), prod.base_price!!.toInt())
+        val prod = Products.filtered()[position]
+        //vh1.priceTV.text = String.format(res!!.getString(R.string.price_tag), prod.base_price!!.toInt())
         vh1.productTV.text = prod.name
 
 
@@ -82,7 +86,7 @@ class ProductsAdapter(val fm: FragmentManager) : RecyclerView.Adapter<RecyclerVi
     }
 
     override fun getItemCount(): Int {
-        return Products.count()
+        return Products.filtered().count()
     }
 
     override fun getItemViewType(position: Int): Int {

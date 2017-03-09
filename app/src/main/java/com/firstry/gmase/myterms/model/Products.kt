@@ -14,4 +14,8 @@ object Products {
     fun count(): Int {
         return p.count()
     }
+
+    fun filtered(): ArrayList<Product> {
+        return p
+    }
 }

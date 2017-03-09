@@ -31,5 +31,9 @@ class Product {
         }
         return companyLogo
     }
+
+    fun priceString(): String {
+        return base_price.toString() + '$'
+    }
 }
 

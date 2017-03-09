@@ -1,6 +1,10 @@
 package com.firstry.gmase.myterms
 
 import android.app.Application
+import com.firstry.gmase.myterms.model.Companies
+import com.firstry.gmase.myterms.model.Products
+import com.firstry.gmase.myterms.network.HttpRequestCompanies
+import com.firstry.gmase.myterms.network.HttpRequestProducts
 import org.acra.ACRA
 import org.acra.ReportingInteractionMode
 import org.acra.annotation.ReportsCrashes
@@ -25,5 +29,9 @@ class MyTerms : Application() {
         // The following line triggers the initialization of ACRA
         super.onCreate()
         ACRA.init(this)
+
+        //Retrive data from server
+        Companies.c = HttpRequestCompanies(context = this).execute().get().body.companies
+        Products.p = HttpRequestProducts(context = this).execute().get().body.products
     }
 }

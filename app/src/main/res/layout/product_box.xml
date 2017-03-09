@@ -1,4 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+
+    <data>
+
+        <variable
+            name="productModel"
+            type="com.firstry.gmase.myterms.model.Product" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/llContainer"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,7 +16,6 @@
     android:background="@color/colorThirdLight"
     android:elevation="2sp"
     android:orientation="vertical">
-
     <LinearLayout
         android:id="@+id/product_header"
         android:layout_width="match_parent"
@@ -22,7 +30,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.22"
-            android:text="30€" />
+            android:text="@{productModel.priceString()}" />
 
         <TextView
             android:id="@+id/product_name"
@@ -30,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.38"
-            android:text="Ardilla" />
+            android:text="@{productModel.name}" />
 
         <ImageView
             android:id="@+id/company_icon"
@@ -68,3 +76,4 @@
     <!--android:backgroundTint="@color/colorThirdLight"-->
     <!--android:text="+" />-->
 </LinearLayout>
+</layout>
