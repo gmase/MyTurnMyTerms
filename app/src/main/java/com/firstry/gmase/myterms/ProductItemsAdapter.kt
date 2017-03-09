@@ -14,15 +14,10 @@ import com.firstry.gmase.myterms.model.ProductItem
  * Created by Guille2 on 01/03/2017
  * Have fun
  */
-class ProductItemsAdapter : ListAdapter {
-    private var _context: Context? = null
-    private var _elementos: List<ProductItem>? = null
+class ProductItemsAdapter(context: Context, elementos: List<ProductItem>) : ListAdapter {
+    private var _context: Context? = context
+    private var _elementos: List<ProductItem>? = elementos
 
-
-    constructor(context: Context, elementos: List<ProductItem>) {
-        this._context = context
-        this._elementos = elementos
-    }
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         var convertView = p1

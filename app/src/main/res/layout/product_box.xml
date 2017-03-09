@@ -21,7 +21,7 @@
             style="@style/productPrice"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.2"
+            android:layout_weight="0.22"
             android:text="30€" />
 
         <TextView
@@ -29,7 +29,7 @@
             style="@style/productName"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.4"
+            android:layout_weight="0.38"
             android:text="Ardilla" />
 
         <ImageView
@@ -46,7 +46,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
-            android:src="@drawable/ic_sentiment_very_dissatisfied_black_48px" />
+            android:src="@drawable/ic_sentiment_neutral_black_24dp" />
 
     </LinearLayout>
 

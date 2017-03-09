@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.provider.ContactsContract
 import android.support.v4.widget.SimpleCursorAdapter
 import android.support.v7.widget.RecyclerView
@@ -38,8 +37,7 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
     var mAdapter: SimpleCursorAdapter? = null
 
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                                  savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
         //val textView = rootView.findViewById(R.id.section_label) as TextView
 

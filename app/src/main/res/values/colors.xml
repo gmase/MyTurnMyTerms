@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#5a2d2d</color>
     <color name="colorAccent">#F2E394</color>
     <color name="colorThird">#588C7E</color>
-    <color name="colorThirdLighter">#78AC9E</color>
-    <color name="colorThirdLight">#88BCAE</color>
+    <color name="colorThirdLighter">#A8DCBE</color>
+    <color name="colorThirdLight">#98BCAE</color>
     <color name="logoBackground">#AAAAAA</color>
 </resources>

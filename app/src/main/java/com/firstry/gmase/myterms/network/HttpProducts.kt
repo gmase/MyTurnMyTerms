@@ -12,14 +12,14 @@ import org.json.JSONObject
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 class HttpProducts {
-    //val products: JSONArray
+    //val p: JSONArray
     var products: ArrayList<Product> = ArrayList()
     /*
     init {
         var i=0
-        while (i<products.length())
+        while (i<p.length())
         {
-            val obj=products[i] as JSONObject
+            val obj=p[i] as JSONObject
             productList.add(Product(obj.getString("name"),obj.getString("id"),obj.getDouble("base_price").toFloat(),obj.getInt("permanencia")))
             i++
         }

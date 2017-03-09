@@ -17,7 +17,10 @@ import android.support.v4.widget.DrawerLayout
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import com.firstry.gmase.myterms.network.HttpRequestTask
+import com.firstry.gmase.myterms.model.Companies
+import com.firstry.gmase.myterms.model.Products
+import com.firstry.gmase.myterms.network.HttpRequestCompanies
+import com.firstry.gmase.myterms.network.HttpRequestProducts
 import java.io.IOException
 
 
@@ -64,9 +67,10 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
 
         //Retrive data from server
+        Companies.c = HttpRequestCompanies(context = this).execute().get().body.companies
+        Products.p = HttpRequestProducts(context = this).execute().get().body.products
 
-        var retrievedData = HttpRequestTask(context = this).execute().get()
-        var a = 1
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {

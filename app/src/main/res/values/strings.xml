@@ -10,4 +10,5 @@
     <string name="gifts_selected">Regalos de dispositivos</string>
     <string name="i_want">"Quiero "</string>
     <string name="crash_toast_text">We\'ve received your error report, we\'ll fix it asap!</string>
+    <string name="price_tag">%1$d €</string>
 </resources>
