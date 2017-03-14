@@ -1,7 +1,6 @@
 <layout>
 
     <data>
-
         <variable
             name="productModel"
             type="com.firstry.gmase.myterms.model.Product" />

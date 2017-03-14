@@ -2,13 +2,14 @@ package com.firstry.gmase.myterms.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.firstry.gmase.myterms.R
+import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
 
 /**
  * Created by Guille2 on 01/03/2017
  * Have fun
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Product {
+class Product : SortedListAdapter.ViewModel {
     var name: String? = null
     var id: String? = null
     var base_price: Float? = null

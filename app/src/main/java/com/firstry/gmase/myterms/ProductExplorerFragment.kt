@@ -1,21 +1,23 @@
 package com.firstry.gmase.myterms
 
-import android.graphics.Color
-import android.graphics.ColorFilter
+import android.databinding.DataBindingUtil
 import android.graphics.PorterDuff
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.provider.ContactsContract
-import android.support.v4.widget.SimpleCursorAdapter
-import android.support.v7.widget.RecyclerView
-import android.view.Gravity
-import jp.wasabeef.recyclerview.animators.FadeInRightAnimator
-import android.R.attr.duration
-import android.support.design.widget.Snackbar
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.ProgressBar
+import com.firstry.gmase.myterms.databinding.FragmentMainBinding
+import com.firstry.gmase.myterms.model.Product
+import com.firstry.gmase.myterms.model.Products
+import java.util.*
 
 
 /**
@@ -31,12 +33,16 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
     }
 
     // This is the Adapter being used to display the list's data
-    var mAdapter: SimpleCursorAdapter? = null
+    // var mAdapter: SimpleCursorAdapter? = null
 
+    private val ALPHABETICAL_COMPARATOR = Comparator<Product> { a, b -> a.name!!.compareTo(b.name!!) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
-        //val textView = rootView.findViewById(R.id.section_label) as TextView
+        //val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
+
+        val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        val rootView = binding.root
+
 
         val phoneButton= rootView.findViewById(R.id.phone_filter) as ImageButton
         val internetButton= rootView.findViewById(R.id.internet_filter) as ImageButton
@@ -48,30 +54,36 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         val mobileDataButton = rootView.findViewById(R.id.mobile_data) as ImageButton
 
 
-        val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView
+        val mAdapter = ProductsAdapter(context, Product::class, ALPHABETICAL_COMPARATOR, object : ProductsAdapter.Listener {
+            override fun onExampleModelClicked(model: Product) {
+                //val message = getString(R.string.model_clicked_pattern, model.getText())
+                //Snackbar.make(mBinding.getRoot(), message, Snackbar.LENGTH_SHORT).show()
+            }
+        })
+
+
+        binding.recyclerProducts.layoutManager = LinearLayoutManager(context)
+        //binding.recyclerProducts.adapter = mAdapter as RecyclerView.Adapter<*>
+        binding.recyclerProducts.adapter = mAdapter
+        mAdapter.edit()
+                .replaceAll(Products.p)
+                .commit()
 
         // Create a progress bar to display while the list loads
         val progressBar = ProgressBar(context)
         progressBar.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER.toFloat())
         progressBar.isIndeterminate = true
 
-        // For the cursor adapter, specify which columns go into which views
-        val fromColumns = arrayOf(ContactsContract.Data.DISPLAY_NAME)
-        val toViews = intArrayOf(android.R.id.text1) // The TextView in simple_list_item_1
 
+        //val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView
+        // recycler.setHasFixedSize(false)
 
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
-        recycler.setHasFixedSize(false)
-        // use a linear layout manager
+        /*
         val mLayoutManager = ObjLayoutManager(context)
         recycler.layoutManager = mLayoutManager
-        //var modelAdapeter: MyModeldApter? = null
-        //val mAdapter = ProductsAdapter(modelAdapeter, supportFragmentManager)
-        val mAdapter = ProductsAdapter( fragmentManager)
         recycler.adapter = mAdapter
-
         recycler.itemAnimator = FadeInRightAnimator() as RecyclerView.ItemAnimator?
+        */
 
 
         var phoneFilter = false
@@ -106,8 +118,6 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
                 internetButton.background.clearColorFilter()
             else {
                 internetButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
-                //val toast = Toast.makeText(context, getString(R.string.internet_selected), Toast.LENGTH_SHORT)
-                //toast.show()
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.internet_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             internetFilter=!internetFilter
