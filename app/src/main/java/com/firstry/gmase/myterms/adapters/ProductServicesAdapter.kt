@@ -38,34 +38,4 @@ class ProductServicesAdapter(context: Context, itemClass: KClass<ProductService>
     }
 
     private var res: Resources? = null
-
-
-    // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: ListView.ViewHolder, position: Int) {
-        val vh1 = holder
-        //configureViewHolderProductService(vh1, position)
-
-        //TODO
-        val model = prod.services[position]
-        vh1.bind(model)
-
-//        when (holder.itemViewType) {
-//            Type.YESNO.ordinal -> {
-//                val vh1 = holder as ViewHolderYesNo
-//                configureViewHolderYesNo(vh1, position)
-//            }
-//            Type.SLIDER.ordinal -> {
-//                val vh2 = holder as ViewHolderProductService
-//                configureViewHolderSlider(vh2, position)
-//            }
-//            else -> {
-//                throw UnsupportedOperationException("Tipo Question no definido")
-//            }
-//        }
-    }
-
-
-    fun getItemCount(): Int {
-        return prod.services.count()
-    }
 }

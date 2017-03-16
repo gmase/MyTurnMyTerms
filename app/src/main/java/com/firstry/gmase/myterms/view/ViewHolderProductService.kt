@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.*
-import com.firstry.gmase.myterms.ProductsAdapter
+import com.firstry.gmase.myterms.adapters.ProductsAdapter
 import com.firstry.gmase.myterms.R
 import com.firstry.gmase.myterms.adapters.ProductServicesAdapter
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
