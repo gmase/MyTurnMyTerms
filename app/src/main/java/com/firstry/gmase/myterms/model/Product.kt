@@ -15,6 +15,7 @@ class Product : SortedListAdapter.ViewModel {
     var base_price: Float? = null
     var permanencia: Int? = null
     var company: String? = null
+    var services: ArrayList<ProductService>? = null
 
     fun companyLogo(): Int {
         val companyLogo: Int

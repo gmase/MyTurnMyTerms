@@ -1,19 +1,27 @@
 package com.firstry.gmase.myterms.model
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+
 /**
  * Created by Guille2 on 01/03/2017
  * Have fun
  */
-class ProductItem(type: Int, val text: String, rating: Int) {
+@JsonIgnoreProperties(ignoreUnknown = true)
+class ProductService {
+    var name: String? = null
+    var type: String? = null
+    var rating: Int? = null
+    var compulsory: Boolean? = null
+
     val src: String?
     //val ratingLetter: String
     val ratingIcon: String?
 
     init {
         when (type) {
-            1 -> src = "ic_wifi_tethering_black_24dp"
-            2 -> src = "ic_call_black_24dp"
-            3 -> src = "ic_attach_money_black_24dp"
+            "fibra óptica" -> src = "ic_wifi_tethering_black_24dp"
+            "4G" -> src = "ic_call_black_24dp"
+            "TV" -> src = "ic_attach_money_black_24dp"
             else -> {
                 src = null
             }

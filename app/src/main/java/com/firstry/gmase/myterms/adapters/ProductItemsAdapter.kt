@@ -1,4 +1,4 @@
-package com.firstry.gmase.myterms
+package com.firstry.gmase.myterms.adapters
 
 import android.content.Context
 import android.database.DataSetObserver
@@ -8,15 +8,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.TextView
-import com.firstry.gmase.myterms.model.ProductItem
+import com.firstry.gmase.myterms.R
+import com.firstry.gmase.myterms.model.ProductService
 
 /**
  * Created by Guille2 on 01/03/2017
  * Have fun
  */
-class ProductItemsAdapter(context: Context, elementos: List<ProductItem>) : ListAdapter {
+class ProductItemsAdapter(context: Context, elementos: List<ProductService>) : ListAdapter {
     private var _context: Context? = context
-    private var _elementos: List<ProductItem>? = elementos
+    private var _elementos: List<ProductService>? = elementos
 
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
@@ -28,7 +29,7 @@ class ProductItemsAdapter(context: Context, elementos: List<ProductItem>) : List
         }
 
         val txtListChild = convertView!!.findViewById(R.id.description) as TextView
-        txtListChild.text = _elementos!![p0].text
+        //txtListChild.text = _elementos!![p0].text
 
 
         if (_elementos!![p0].ratingIcon != null) {

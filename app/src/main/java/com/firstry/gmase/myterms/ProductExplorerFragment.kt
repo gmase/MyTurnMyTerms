@@ -14,6 +14,7 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ProgressBar
+import com.firstry.gmase.myterms.ProductsAdapter
 import com.firstry.gmase.myterms.databinding.FragmentMainBinding
 import com.firstry.gmase.myterms.model.Product
 import com.firstry.gmase.myterms.model.Products

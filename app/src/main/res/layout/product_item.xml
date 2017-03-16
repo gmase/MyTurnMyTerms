@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="productServiceModel"
+            type="com.firstry.gmase.myterms.model.ProductService" />
+    </data>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/productItem"
     android:layout_width="wrap_content"
@@ -18,14 +25,6 @@
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_weight="0.1" />
-    <!--<TextView-->
-    <!--android:id="@+id/rating"-->
-    <!--style="@style/productName"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="60dp"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:layout_weight="0.1"-->
-    <!--android:text="A" />-->
 
     <TextView
         android:id="@+id/description"
@@ -35,5 +34,6 @@
         android:layout_gravity="center"
         android:layout_weight="0.8"
         android:paddingStart="10dp"
-        android:text="Internet movil 4G 2GB" />
+        android:text="@{productServiceModel.name}" />
 </LinearLayout>
+</layout>
