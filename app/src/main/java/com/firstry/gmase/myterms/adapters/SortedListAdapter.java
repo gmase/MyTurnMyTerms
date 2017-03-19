@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.firstry.gmase.myterms.model.Product;
+import com.firstry.gmase.myterms.model.ProductService;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -155,6 +159,16 @@ public abstract class SortedListAdapter<T extends SortedListAdapter.ViewModel> e
         public final void bind(T item) {
             mCurrentItem = item;
             performBind(item);
+            /*TODO
+            Product prod= (Product) item;
+            ProductService service;
+            for(Iterator<ProductService> i = prod.getServices().iterator(); i.hasNext(); ) {
+                service=i.next();
+                performBind(service);
+            }
+            */
+
+
         }
 
         protected abstract void performBind(T item);

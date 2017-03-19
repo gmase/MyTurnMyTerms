@@ -29,22 +29,15 @@ class ProductItemsAdapter(context: Context, elementos: List<ProductService>) : L
         }
 
         val txtListChild = convertView!!.findViewById(R.id.description) as TextView
-        //txtListChild.text = _elementos!![p0].text
+        txtListChild.text = _elementos!![p0].name
 
+        val rating = convertView.findViewById(R.id.rating) as ImageView
+        var iconId = this._context!!.resources.getIdentifier(_elementos!![p0].ratingIcon(), "drawable", this._context!!.packageName)
+        rating.setImageResource(iconId)
 
-        if (_elementos!![p0].ratingIcon != null) {
-            val rating = convertView.findViewById(R.id.rating) as ImageView
-            val iconId = this._context!!.resources.getIdentifier(_elementos!![p0].ratingIcon, "drawable", this._context!!.packageName)
-            rating.setImageResource(iconId)
-        }
-
-        if (_elementos!![p0].src != null) {
-            val icon = convertView.findViewById(R.id.item_icon) as ImageView
-            val iconId = this._context!!.resources.getIdentifier(_elementos!![p0].src, "drawable", this._context!!.packageName)
-            icon.setImageResource(iconId)
-        }
-
-        //android:src="@drawable/datos_movil"
+        val icon = convertView.findViewById(R.id.item_icon) as ImageView
+        iconId = this._context!!.resources.getIdentifier(_elementos!![p0].src(), "drawable", this._context!!.packageName)
+        icon.setImageResource(iconId)
 
         return convertView
     }

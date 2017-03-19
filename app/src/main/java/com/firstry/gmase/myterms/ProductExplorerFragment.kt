@@ -37,7 +37,6 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
     // var mAdapter: SimpleCursorAdapter? = null
 
     private val ALPHABETICAL_COMPARATOR = Comparator<Product> { a, b -> a.name!!.compareTo(b.name!!) }
-    private val ALPHABETICAL_COMPARATOR_S = Comparator<ProductService> { a, b -> a.name!!.compareTo(b.name!!) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)

@@ -3,13 +3,19 @@ package com.firstry.gmase.myterms.view
 import android.content.Context
 import android.support.v4.app.FragmentManager
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
 import com.firstry.gmase.myterms.adapters.ProductsAdapter
 import com.firstry.gmase.myterms.R
+import com.firstry.gmase.myterms.Utils
+import com.firstry.gmase.myterms.adapters.ProductItemsAdapter
 import com.firstry.gmase.myterms.adapters.SortedListAdapter
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
+import com.firstry.gmase.myterms.databinding.ProductItemBinding
 import com.firstry.gmase.myterms.model.Product
+import com.firstry.gmase.myterms.model.ProductService
+import java.lang.UnsupportedOperationException
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -19,12 +25,24 @@ import kotlin.collections.ArrayList
  * Have fun
  */
 
-class ViewHolderProduct(val mBinding: ProductBoxBinding, val listener: ProductsAdapter.Listener) : SortedListAdapter.ViewHolder<Product>(mBinding.root) {
+class ViewHolderProduct(val mBinding: ProductBoxBinding, val listener: ProductsAdapter.Listener, val inflater: LayoutInflater, val context: Context) : SortedListAdapter.ViewHolder<Product>(mBinding.root) {
     override fun performBind(item: Product) {
-        mBinding.productModel = (item)
+        mBinding.productModel = item
+        //for (i in item.services)
+        //{
+        val binding = ProductItemBinding.inflate(inflater, mBinding.productItemList, false)
+        val viewHolder = ViewHolderProductService(binding)
+        //val serviceList = viewHolder.itemView.findViewById(R.id.product_item_list) as ListView
+        val serviceList = mBinding.productItemList
+        val listAdapter = ProductItemsAdapter(context, item.services)
+        serviceList.adapter = listAdapter
+        val ut = Utils()
+        ut.setListViewHeightBasedOnChildren(serviceList)
+        //viewHolder.performBind(i)
+        //}
+
     }
 
-    var context: Context? = null
     /*
     var prods: MutableList<Product>
     var priceTV: TextView

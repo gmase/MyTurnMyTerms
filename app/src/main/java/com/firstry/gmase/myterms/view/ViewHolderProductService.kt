@@ -22,7 +22,7 @@ import kotlin.collections.ArrayList
  */
 
 class ViewHolderProductService(val mBinding: ProductItemBinding) : SortedListAdapter.ViewHolder<ProductService>(mBinding.root) {
-    override fun performBind(item: ProductService) {
+    public override fun performBind(item: ProductService) {
         mBinding.productServiceModel = (item)
     }
 

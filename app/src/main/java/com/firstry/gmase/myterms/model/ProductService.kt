@@ -18,6 +18,34 @@ class ProductService : SortedListAdapter.ViewModel {
     //val ratingLetter: String
     val ratingIcon: String?
 
+    fun src(): String {
+        val src: String
+        when (type) {
+            "fibra óptica" -> src = "ic_wifi_tethering_black_24dp"
+            "4G" -> src = "ic_call_black_24dp"
+            "TV" -> src = "ic_tv_black_24dp"
+            else -> {
+                src = "ic_attach_money_black_24dp"
+            }
+        }
+        return src
+    }
+
+    fun ratingIcon(): String {
+        val ratingIcon: String
+        when (rating) {
+            in 0..30 -> ratingIcon = "ic_one_dots"
+            in 31..60 -> ratingIcon = "ic_two_dots"
+            in 61..90 -> ratingIcon = "ic_three_dots"
+            in 91..100 -> ratingIcon = "ic_four_dots"
+            else -> {
+                ratingIcon = "ic_one_dots"
+            }
+        }
+        return ratingIcon
+    }
+
+
     init {
         when (type) {
             "fibra óptica" -> src = "ic_wifi_tethering_black_24dp"

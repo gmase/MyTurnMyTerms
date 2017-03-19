@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
+import com.firstry.gmase.myterms.databinding.ProductItemBinding
 import com.firstry.gmase.myterms.model.Product
+import com.firstry.gmase.myterms.model.ProductService
 import com.firstry.gmase.myterms.view.ViewHolderProduct
 import java.util.*
 import kotlin.reflect.KClass
@@ -24,7 +26,7 @@ class ProductsAdapter(context: Context, itemClass: KClass<Product>, mComparator:
         res = parent.resources
 
         val binding = ProductBoxBinding.inflate(inflater, parent, false)
-        return ViewHolderProduct(binding, mListener)
+        return ViewHolderProduct(binding, mListener, inflater, parent.context)
     }
 
     override fun areItemsTheSame(item1: Product, item2: Product): Boolean {
