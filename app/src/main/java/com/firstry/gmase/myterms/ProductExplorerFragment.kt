@@ -10,13 +10,13 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.ProgressBar
+import android.widget.*
+import com.firstry.gmase.myterms.adapters.ProductServicesAdapter
 import com.firstry.gmase.myterms.adapters.ProductsAdapter
 import com.firstry.gmase.myterms.databinding.FragmentMainBinding
+import com.firstry.gmase.myterms.databinding.ProductBoxBinding
 import com.firstry.gmase.myterms.model.Product
+import com.firstry.gmase.myterms.model.ProductService
 import com.firstry.gmase.myterms.model.Products
 import java.util.*
 
@@ -37,13 +37,13 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
     // var mAdapter: SimpleCursorAdapter? = null
 
     private val ALPHABETICAL_COMPARATOR = Comparator<Product> { a, b -> a.name!!.compareTo(b.name!!) }
+    private val ALPHABETICAL_COMPARATOR_S = Comparator<ProductService> { a, b -> a.name!!.compareTo(b.name!!) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
 
         val binding: FragmentMainBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
         val rootView = binding.root
-
 
         val phoneButton= rootView.findViewById(R.id.phone_filter) as ImageButton
         val internetButton= rootView.findViewById(R.id.internet_filter) as ImageButton
@@ -62,7 +62,6 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
             }
         })
 
-
         binding.recyclerProducts.layoutManager = LinearLayoutManager(context)
         //binding.recyclerProducts.adapter = mAdapter as RecyclerView.Adapter<*>
         binding.recyclerProducts.adapter = mAdapter
@@ -74,6 +73,22 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         val progressBar = ProgressBar(context)
         progressBar.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER.toFloat())
         progressBar.isIndeterminate = true
+
+
+        val binding2: ProductBoxBinding = DataBindingUtil.inflate(inflater, R.layout.product_box, container, false)
+        val mAdapter2 = ProductServicesAdapter(context, ProductService::class, ALPHABETICAL_COMPARATOR_S, object : ProductServicesAdapter.Listener {
+            override fun onExampleModelClicked(model: ProductService) {
+                //val message = getString(R.string.model_clicked_pattern, model.getText())
+                //Snackbar.make(mBinding.getRoot(), message, Snackbar.LENGTH_SHORT).show()
+            }
+        })
+
+        binding2.productItemList.layoutManager = LinearLayoutManager(context)
+        //binding.recyclerProducts.adapter = mAdapter as RecyclerView.Adapter<*>
+        binding2.productItemList.adapter = mAdapter2
+        mAdapter2.edit()
+                .replaceAll(Products.p[0].services)
+                .commit()
 
 
         //val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView

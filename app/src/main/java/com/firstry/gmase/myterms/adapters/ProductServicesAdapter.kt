@@ -17,7 +17,7 @@ import kotlin.reflect.KClass
  * Created by Guille2 on 05/08/2016
  * Have fun
  */
-class ProductServicesAdapter(context: Context, itemClass: KClass<ProductService>, mComparator: Comparator<ProductService>, val mListener: Listener, val prod: Product) : SortedListAdapter<ProductService>(context, itemClass.java, mComparator) {
+class ProductServicesAdapter(context: Context, itemClass: KClass<ProductService>, mComparator: Comparator<ProductService>, val mListener: Listener) : SortedListAdapter<ProductService>(context, itemClass.java, mComparator) {
     interface Listener {
         fun onExampleModelClicked(model: ProductService)
     }
