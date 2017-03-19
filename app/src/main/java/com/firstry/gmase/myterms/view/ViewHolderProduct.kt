@@ -7,9 +7,9 @@ import android.view.View
 import android.widget.*
 import com.firstry.gmase.myterms.adapters.ProductsAdapter
 import com.firstry.gmase.myterms.R
+import com.firstry.gmase.myterms.adapters.SortedListAdapter
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
 import com.firstry.gmase.myterms.model.Product
-import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 

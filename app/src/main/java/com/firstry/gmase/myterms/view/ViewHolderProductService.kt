@@ -7,12 +7,11 @@ import android.view.View
 import android.widget.*
 import com.firstry.gmase.myterms.adapters.ProductsAdapter
 import com.firstry.gmase.myterms.R
-import com.firstry.gmase.myterms.adapters.ProductServicesAdapter
+import com.firstry.gmase.myterms.adapters.SortedListAdapter
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
 import com.firstry.gmase.myterms.databinding.ProductItemBinding
 import com.firstry.gmase.myterms.model.Product
 import com.firstry.gmase.myterms.model.ProductService
-import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -22,7 +21,7 @@ import kotlin.collections.ArrayList
  * Have fun
  */
 
-class ViewHolderProductService(val mBinding: ProductItemBinding, val listener: ProductServicesAdapter.Listener) : SortedListAdapter.ViewHolder<ProductService>(mBinding.root) {
+class ViewHolderProductService(val mBinding: ProductItemBinding) : SortedListAdapter.ViewHolder<ProductService>(mBinding.root) {
     override fun performBind(item: ProductService) {
         mBinding.productServiceModel = (item)
     }

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
 import com.firstry.gmase.myterms.model.Product
 import com.firstry.gmase.myterms.view.ViewHolderProduct
-import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
 import java.util.*
 import kotlin.reflect.KClass
 

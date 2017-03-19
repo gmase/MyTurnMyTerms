@@ -2,7 +2,7 @@ package com.firstry.gmase.myterms.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.firstry.gmase.myterms.R
-import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter
+import com.firstry.gmase.myterms.adapters.SortedListAdapter
 
 /**
  * Created by Guille2 on 01/03/2017
