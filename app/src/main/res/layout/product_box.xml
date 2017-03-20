@@ -45,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="0.25"
-            android:src="@drawable/simyo" />
+            android:src="@{productModel.companyLogo()}" />
 
         <ImageView
             android:id="@+id/satisfaction_icon"

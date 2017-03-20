@@ -1,8 +1,17 @@
 package com.firstry.gmase.myterms.model
 
+import android.graphics.drawable.Drawable
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.firstry.gmase.myterms.R
 import com.firstry.gmase.myterms.adapters.SortedListAdapter
+import android.databinding.BindingAdapter
+import android.widget.ImageView
+
+@BindingAdapter("android:src")
+fun setImageViewResource(imageView: ImageView, resource: Int) {
+    imageView.setImageResource(resource)
+}
+
 
 /**
  * Created by Guille2 on 01/03/2017
@@ -16,6 +25,7 @@ class Product : SortedListAdapter.ViewModel {
     var permanencia: Int? = null
     var company: String? = null
     var services: ArrayList<ProductService> = ArrayList()
+
 
     fun companyLogo(): Int {
         val companyLogo: Int
