@@ -24,4 +24,20 @@ class Company {
         }
         return img
     }
+
+    fun compmanyIcon(): Int {
+        val img: Int
+        when (name) {
+            "movistar" -> img = R.drawable.movistar
+            "simyo" -> img = R.drawable.simyo
+            "jazztel" -> img = R.drawable.jazztel
+            "masmovil" -> img = R.drawable.masmovil
+            "orange" -> img = R.drawable.orange
+            "vodafone" -> img = R.drawable.vodafone
+            "yoigo" -> img = R.drawable.yoigo
+            else -> img = R.drawable.simyo
+        }
+        return img
+    }
+
 }

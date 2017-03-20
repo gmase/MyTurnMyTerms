@@ -28,24 +28,15 @@ class Product : SortedListAdapter.ViewModel {
 
 
     fun companyLogo(): Int {
-        val companyLogo: Int
-        when (company) {
-            "movistar" -> companyLogo = R.drawable.movistar
-            "simyo" -> companyLogo = R.drawable.simyo
-            "jazztel" -> companyLogo = R.drawable.jazztel
-            "masmovil" -> companyLogo = R.drawable.masmovil
-            "orange" -> companyLogo = R.drawable.orange
-            "vodafone" -> companyLogo = R.drawable.vodafone
-            "yoigo" -> companyLogo = R.drawable.yoigo
-        //TODO pepefone...
+        return Companies.get(company!!)!!.compmanyIcon()
+    }
 
-            else -> companyLogo = R.drawable.simyo//TODO no logo
-        }
-        return companyLogo
+    fun companySatisfaction(): Int {
+        return Companies.get(company!!)!!.ratingIcon()
     }
 
     fun priceString(): String {
-        return base_price.toString() + '$'
+        return base_price!!.toInt().toString() + '$'
     }
 }
 
