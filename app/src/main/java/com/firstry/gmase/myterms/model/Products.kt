@@ -10,12 +10,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 @JsonIgnoreProperties(ignoreUnknown = true)
 object Products {
     var p: ArrayList<Product> = ArrayList()
-
+    var f: Filters = Filters()
     fun count(): Int {
         return p.count()
     }
-
     fun filtered(): ArrayList<Product> {
-        return p
+        return f.filterAll(p)
     }
 }

@@ -36,6 +36,7 @@ class ProductsAdapter(context: Context, itemClass: KClass<Product>, mComparator:
     override fun areItemContentsTheSame(oldItem: Product, newItem: Product): Boolean {
         return oldItem.toString() === newItem.toString()
     }
+
     private var res: Resources? = null
 
     }

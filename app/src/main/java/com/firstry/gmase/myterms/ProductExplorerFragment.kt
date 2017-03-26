@@ -16,7 +16,7 @@ import com.firstry.gmase.myterms.adapters.ProductsAdapter
 import com.firstry.gmase.myterms.databinding.FragmentMainBinding
 import com.firstry.gmase.myterms.databinding.ProductBoxBinding
 import com.firstry.gmase.myterms.model.Product
-import com.firstry.gmase.myterms.model.ProductService
+import com.firstry.gmase.myterms.model.Filters
 import com.firstry.gmase.myterms.model.Products
 import java.util.*
 
@@ -65,7 +65,7 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         //binding.recyclerProducts.adapter = mAdapter as RecyclerView.Adapter<*>
         binding.recyclerProducts.adapter = mAdapter
         mAdapter.edit()
-                .replaceAll(Products.p)
+                .replaceAll(Products.filtered())
                 .commit()
 
         // Create a progress bar to display while the list loads
@@ -73,13 +73,10 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         progressBar.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER.toFloat())
         progressBar.isIndeterminate = true
 
-
+/*
         val binding2: ProductBoxBinding = DataBindingUtil.inflate(inflater, R.layout.product_box, container, false)
         val mAdapter2 = ProductItemsAdapter(context, Products.p[1].services)
-
-        //binding2.productItemList.layoutManager = LinearLayoutManager(context)
-        //binding.recyclerProducts.adapter = mAdapter as RecyclerView.Adapter<*>
-        binding2.productItemList.adapter = mAdapter2
+        binding2.productItemList.adapter = mAdapter2*/
 
 
         //val recycler=rootView.findViewById(R.id.recycler_products) as RecyclerView
@@ -118,6 +115,11 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
 
             }
             phoneFilter=!phoneFilter
+
+
+            mAdapter.edit()
+                    .replaceAll(Products.filtered())
+                    .commit()
         }
 
         internetButton.setOnClickListener { view ->
@@ -128,16 +130,25 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.internet_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             internetFilter=!internetFilter
+            mAdapter.edit()
+                    .replaceAll(Products.filtered())
+                    .commit()
         }
 
         tvButton.setOnClickListener { view ->
-            if (tvFilter)
+            if (tvFilter) {
                 tvButton.background.clearColorFilter()
+                Products.f.remove(0, "TV")
+            }
             else {
                 tvButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.tv_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+                Products.f.add(0, "TV")
             }
             tvFilter=!tvFilter
+            mAdapter.edit()
+                    .replaceAll(Products.filtered())
+                    .commit()
         }
 
         devicesButton.setOnClickListener { view ->
@@ -148,6 +159,9 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.gifts_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             giftsFilter=!giftsFilter
+            mAdapter.edit()
+                    .replaceAll(Products.filtered())
+                    .commit()
         }
 
         //secondary buttons
@@ -159,6 +173,9 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.mobile_tons_data), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             mobileDataFilter = !mobileDataFilter
+            mAdapter.edit()
+                    .replaceAll(Products.filtered())
+                    .commit()
         }
 
         mobile4GButton.setOnClickListener { view ->
@@ -169,6 +186,9 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.mobile_4g), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
             }
             mobile4GFilter = !mobile4GFilter
+            mAdapter.edit()
+                    .replaceAll(Products.filtered())
+                    .commit()
         }
 
         return rootView
