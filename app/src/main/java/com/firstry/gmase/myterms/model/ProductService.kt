@@ -21,8 +21,8 @@ class ProductService : SortedListAdapter.ViewModel {
     fun src(): String {
         val src: String
         when (type) {
-            "fibra óptica" -> src = "ic_wifi_tethering_black_24dp"
-            "4G" -> src = "ic_call_black_24dp"
+            "landline" -> src = "ic_home_black_24dp"
+            "4G" -> src = "ic_stay_primary_portrait_black_24dp"
             "TV" -> src = "ic_tv_black_24dp"
             else -> {
                 src = "ic_attach_money_black_24dp"
@@ -48,23 +48,13 @@ class ProductService : SortedListAdapter.ViewModel {
 
     init {
         when (type) {
-            "fibra óptica" -> src = "ic_wifi_tethering_black_24dp"
-            "4G" -> src = "ic_call_black_24dp"
+            "landline" -> src = "ic_home_black_24dp"
+            "4G" -> src = "ic_stay_primary_portrait_black_24dp"
             "TV" -> src = "ic_attach_money_black_24dp"
             else -> {
                 src = null
             }
         }
-//        when (rating) {
-//            in 0..20 -> ratingLetter = "D"
-//            in 21..40 -> ratingLetter = "C"
-//            in 41..60 -> ratingLetter = "B"
-//            in 61..80 -> ratingLetter = "A"
-//            in 81..100 -> ratingLetter = "A+"
-//            else -> {
-//                ratingLetter = "D"
-//            }
-//        }
         when (rating) {
             in 0..30 -> ratingIcon = "ic_one_dots"
             in 31..60 -> ratingIcon = "ic_two_dots"

@@ -18,7 +18,11 @@ fun setImageViewResource(imageView: ImageView, resource: Int) {
  * Have fun
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Product : SortedListAdapter.ViewModel {
+class Product : SortedListAdapter.ViewModel, Comparable<Product> {
+    override fun compareTo(other: Product): Int {
+        return base_price!!.compareTo(other.base_price as Float)
+    }
+
     var name: String? = null
     var id: String? = null
     var base_price: Float? = null

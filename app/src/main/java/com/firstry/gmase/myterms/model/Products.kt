@@ -1,6 +1,7 @@
 package com.firstry.gmase.myterms.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
+import java.util.*
 
 /**
  * Created by Guille2 on 08/03/2017

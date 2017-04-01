@@ -25,7 +25,10 @@ class Filters {
     }
 
     fun filterAll(prods: ArrayList<Product>): ArrayList<Product> {
-        val filtered = prods.clone() as ArrayList<Product>
+        val filtered: MutableList<Product> = prods.toMutableList()
+        //val filtered = (prods as List<Product>).clone() as MutableList<Product>
+        //filtered.sort()
+        filtered.sort()
         val iterate = filtered.listIterator()
         var p: Product
         if (f.size > 0)
@@ -38,7 +41,7 @@ class Filters {
                     }
                 }
             }
-        return filtered
+        return filtered as ArrayList<Product>
     }
 
     class Filter(val type: Int, val qualifier: String = "", val quantifier: Float = 0f) {

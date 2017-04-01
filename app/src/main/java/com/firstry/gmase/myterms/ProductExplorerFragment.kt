@@ -37,6 +37,7 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
     // var mAdapter: SimpleCursorAdapter? = null
 
     private val ALPHABETICAL_COMPARATOR = Comparator<Product> { a, b -> a.name!!.compareTo(b.name!!) }
+    private val PRICE_COMPARATOR = Comparator<Product> { a, b -> a.base_price!!.compareTo(b.base_price!!) }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         //val rootView = inflater!!.inflate(R.layout.fragment_main, container, false)
@@ -54,7 +55,7 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         val mobileDataButton = rootView.findViewById(R.id.mobile_data) as ImageButton
 
 
-        val mAdapter = ProductsAdapter(context, Product::class, ALPHABETICAL_COMPARATOR, object : ProductsAdapter.Listener {
+        val mAdapter = ProductsAdapter(context, Product::class, PRICE_COMPARATOR, object : ProductsAdapter.Listener {
             override fun onExampleModelClicked(model: Product) {
                 //val message = getString(R.string.model_clicked_pattern, model.getText())
                 //Snackbar.make(mBinding.getRoot(), message, Snackbar.LENGTH_SHORT).show()
@@ -97,18 +98,20 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
 
         var mobileDataFilter = false
         var mobile4GFilter = false
+
         phoneButton.setOnClickListener { view ->
             if (phoneFilter) {
                 phoneButton.background.clearColorFilter()
+                Products.f.remove(0, "4G")
 
                 mobile4GButton.visibility = Button.GONE
                 mobileDataButton.visibility = ImageButton.GONE
-                /*mobile4GFilter=false
-                mobileDataFilter=false*/
+
             }
             else {
                 phoneButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.phone_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+                Products.f.add(0, "4G")
 
                 mobile4GButton.visibility = Button.VISIBLE
                 mobileDataButton.visibility = ImageButton.VISIBLE
@@ -123,11 +126,14 @@ class ProductExplorerFragment : Fragment(), ProductExtendedDialog.OnTagSelectedL
         }
 
         internetButton.setOnClickListener { view ->
-            if (internetFilter)
+            if (internetFilter) {
                 internetButton.background.clearColorFilter()
+                Products.f.remove(0, "landline")
+            }
             else {
                 internetButton.background.setColorFilter(resources.getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY)
                 Snackbar.make(view, getString(R.string.i_want) + getString(R.string.internet_selected), Snackbar.LENGTH_SHORT).setAction("Action", null).show()
+                Products.f.add(0, "landline")
             }
             internetFilter=!internetFilter
             mAdapter.edit()
